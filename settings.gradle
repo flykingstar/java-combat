@@ -1,3 +1,4 @@
 rootProject.name = 'java-combat'
 include 'week01'
+include 'week02'
 
