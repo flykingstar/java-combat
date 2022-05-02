@@ -3,6 +3,12 @@
 
 # Log file
 *.log
+/gradlew
+/gradlew.bat
+/.gradle
+/gradle
+/.idea
+/build
 
 # BlueJ files
 *.ctxt
