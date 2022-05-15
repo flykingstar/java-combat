@@ -16,7 +16,7 @@ public class HttpServer01 {
             }
         }
     }
-
+    
     private static void service(Socket socket) {
         try {
             PrintWriter printWriter = new PrintWriter(socket.getOutputStream(), true);
