@@ -5,6 +5,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 /**
  * @author dengzhe
  * @date 2022/6/3
+ * spring bean的两种装配方式
  */
 public class BeanTest {
     public static void main(String[] args) {
