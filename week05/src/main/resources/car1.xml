@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
  	http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
 
-    <bean id="car" class="Car">
+    <bean id="car" class="xml.Car">
         <property name="name" value="别克"></property>
         <property name="color" value="黑色"></property>
     </bean>
