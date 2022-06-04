@@ -1,0 +1,12 @@
+school/Klass.java
+ school.Klass
+school/ISchoolService.java
+ school.ISchoolService
+school/SchoolProperties.java
+ school.SchoolProperties
+school/SchoolService.java
+ school.SchoolService
+school/SchoolAutoConfigurationProperties.java
+ school.SchoolAutoConfigurationProperties
+school/Student.java
+ school.Student

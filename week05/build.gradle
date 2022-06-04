@@ -5,6 +5,7 @@ plugins {
 group 'org.example'
 version '1.0-SNAPSHOT'
 repositories {
+    mavenLocal()
     mavenCentral()
 }
 
@@ -14,4 +15,6 @@ dependencies {
     compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.20'
     annotationProcessor "org.projectlombok:lombok:1.18.20"
     implementation "org.springframework:spring-context:5.3.17"
+    implementation "com.school:school-starter:0.0.1"
+    implementation "org.springframework.boot:spring-boot-starter-web:2.7.0"
 }

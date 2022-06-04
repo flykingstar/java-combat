@@ -1,14 +1,14 @@
-annotation/AnimalController.java
- annotation.AnimalController
+annotation/AnimalServiceImpl.java
+ annotation.AnimalServiceImpl
 annotation/AnimalDao.java
  annotation.AnimalDao
-annotation/AnimalService.java
- annotation.AnimalService
+BeanTest.java
+ BeanTest
 annotation/AnimalDaoImpl.java
  annotation.AnimalDaoImpl
 xml/Car.java
  xml.Car
-BeanTest.java
- BeanTest
-annotation/AnimalServiceImpl.java
- annotation.AnimalServiceImpl
+annotation/AnimalController.java
+ annotation.AnimalController
+annotation/AnimalService.java
+ annotation.AnimalService
