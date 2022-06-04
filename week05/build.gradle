@@ -17,4 +17,5 @@ dependencies {
     implementation "org.springframework:spring-context:5.3.17"
     implementation "com.school:school-starter:0.0.1"
     implementation "org.springframework.boot:spring-boot-starter-web:2.7.0"
+    implementation fileTree(dir:'lib',include:['*.jar'])
 }
