@@ -6,6 +6,7 @@ import javax.annotation.Resource;
 /**
  * @author dengzhe
  * @date 2022/6/4
+ * 实现自动配置和 Starter
  */
 @RestController
 public class SpringStarterController {
