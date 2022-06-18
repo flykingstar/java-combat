@@ -1,3 +1,4 @@
+drop table if exists t_customer;
 create table t_customer
 (
     id               int unsigned primary key auto_increment comment '主键',
@@ -12,6 +13,7 @@ create table t_customer
     unique unq_username (username)
 ) comment '客户表';
 
+drop table if exists t_spu;
 create table t_spu
 (
     id               int unsigned primary key auto_increment comment '主键',
@@ -32,6 +34,7 @@ create table t_spu
 
 ) comment ='产品表';
 
+drop table if exists t_order;
 create table t_order
 (
     id           int unsigned primary key auto_increment comment '主键',
@@ -55,6 +58,7 @@ create table t_order
     unique unq_code (`code`)
 ) comment = '订单表';
 
+drop table if exists t_order_detail;
 create table t_order_detail
 (
     order_id     int unsigned            not null comment '订单ID',
