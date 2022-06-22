@@ -1,0 +1,75 @@
+  # 虚拟库名称
+  schemaName: sharding_db
+
+  dataSourceCommon:
+    username: root
+    password: 123456
+    connectionTimeoutMilliseconds: 30000
+    idleTimeoutMilliseconds: 60000
+    maxLifetimeMilliseconds: 1800000
+    maxPoolSize: 5
+    minPoolSize: 1
+    maintenanceIntervalMilliseconds: 30000
+
+  # 映射真实数据源
+  dataSources:
+    ds_0:
+      url: jdbc:mysql://127.0.0.1:3306/combat_ds_01?serverTimezone=UTC&useSSL=false
+    ds_1:
+      url: jdbc:mysql://127.0.0.1:3306/combat_ds_02?serverTimezone=UTC&useSSL=false
+
+  #配置规则 库是 ds_0 ~ ds_1 表是 t_order_0 ~ t_order_15
+  rules:
+    - !SHARDING
+      tables:
+        t_order:
+          actualDataNodes: ds_${0..1}.t_order_${0..15}
+          tableStrategy:
+            standard:
+              shardingColumn: order_id
+              shardingAlgorithmName: t_order_inline
+          keyGenerateStrategy:
+            column: order_id
+            keyGeneratorName: snowflake
+      #   t_order_item:
+      #     actualDataNodes: ds_${0..1}.t_order_item_${0..1}
+      #     tableStrategy:
+      #       standard:
+      #         shardingColumn: order_id
+      #         shardingAlgorithmName: t_order_item_inline
+      #     keyGenerateStrategy:
+      #       column: order_item_id
+      #       keyGeneratorName: snowflake
+      # bindingTables:
+      #   - t_order,t_order_item
+
+      defaultDatabaseStrategy:
+        standard:
+          shardingColumn: user_id
+          shardingAlgorithmName: database_inline
+      defaultTableStrategy:
+        none:
+
+      # 数据库的路由规则策略是user_id % 2 意思是 user_id % 2=0 的到ds_0,user_id % 2= 1的到ds_1
+      # 表的路由策略是 order_id % 16 意思是 order_id % 16=0 的到t_order_0 ... order_id % 16= 15的到的到t_order_15
+
+      shardingAlgorithms:
+        database_inline:
+          type: INLINE
+          props:
+            algorithm-expression: ds_${user_id % 2}
+        t_order_inline:
+          type: INLINE
+          props:
+            algorithm-expression: t_order_${order_id % 16}
+      #   t_order_item_inline:
+      #     type: INLINE
+      #     props:
+      #       algorithm-expression: t_order_item_${order_id % 2}
+
+      # 启用雪花算法
+      keyGenerators:
+        snowflake:
+          type: SNOWFLAKE
+          props:
+            worker-id: 123
